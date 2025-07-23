@@ -10,7 +10,7 @@ def create_user():
     user_info = {}
     user_info['name'] = '홍길동'
     user_info['age'] = 30
-    user_info['adress'] = '서울'
+    user_info['address'] = '서울'
     print(f"{user_info['name']}님 환영합니다!")
     return user_info
 
@@ -18,7 +18,6 @@ def create_user():
     
 
 print(number_of_people)
-# create_user()
 result = create_user()
 print(result)
 print(number_of_people)
