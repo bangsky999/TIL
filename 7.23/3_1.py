@@ -1,6 +1,6 @@
 number_of_people = 0
 
-
+# 함수 내 전역 변수 선언할 것
 def increase_user():
     global number_of_people
     number_of_people += 1
