@@ -65,4 +65,9 @@ def rental_book(info): # info: {'name': '김시습', 'age': 2}
 # 'many_user' 리스트에 대해 람다 함수를 적용하여 사용자의 이름과 나이를 추출하고, 나이를 10으로 나눈 값을 가진 딕셔너리로 변환 후
 # 'rental_book' 함수를 호출한다.
 
-list(map(rental_book, ))###########################################
+list(
+    map(
+        rental_book, 
+        map(lambda x: {'name': x['name'], 'age': x['age'] // 10}, many_user)
+    )
+)
