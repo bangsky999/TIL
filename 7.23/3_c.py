@@ -1,3 +1,4 @@
+# number 부터 1까지 더하기
 def recur_example(number):
     '''
         함수(2) 실행
@@ -16,14 +17,15 @@ def recur_example(number):
     '''
     if number == 1:
         return 1
-    else:
-        return number + recur_example(number - 1)
-result_1 = recur_example(5)
-print(result_1) # 5 + 4 + 3 + 2 + 1 = 15
+    else:    
+        return number + recur_example(number-1)  
+result_1 = recur_example(2)
+print(result_1) 
 
 # 거듭 제곱 재귀 함수
 # base = 밑, exponent = 지수
 # base의 exponent승 == 2의 3승
+
 def power(base, exponent):
     '''
         함수(2, 3) 실행
@@ -37,15 +39,14 @@ def power(base, exponent):
             2 * (2 * (2 * 1))  
             결과 : 8
     '''
-    if :
-        return 
+    if exponent == 0:
+        return 1
     else:
-        
-        return
+        return base * power(2, exponent-1)
 result_2 = power(2, 3)
-print(result_2) # 2 * 2 * 2 * 1 = 8
+print(result_2) 
 
-# 모든 자릿수 더하기 함수
+# # 모든 자릿수 더하기 함수
 def sum_of_digits(number):
     '''
         함수(321) 실행
@@ -59,10 +60,10 @@ def sum_of_digits(number):
         1 + 2 + 3
         결과 : 6
     '''
-    if :
-        return 
+    if number < 10:
+        return number
     else:
-        return 
+        return number % 10 + sum_of_digits(number // 10)
 result_3 = sum_of_digits(321)
-print(result_3) # 1 + 2 + 3 = 6
+print(result_3) 
 
