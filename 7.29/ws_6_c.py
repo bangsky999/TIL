@@ -27,9 +27,9 @@ data = [
 key_list = ['name', 'company', 'is_collapsible']
 
 # 아래에 코드를 작성하시오.
-for dat in data:
-    lst = dat.keys()
-    if lst in key_list:
-        print(f'{key} 은/는 {value}입니다.')
-    else:
-        없다면? 
+for phone in data:
+    for key in key_list:
+        # key가 없다면
+        if not phone.get(ky):
+            phone.setdefault(ky,'unknown')
+        print
