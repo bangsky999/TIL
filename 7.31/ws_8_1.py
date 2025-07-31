@@ -1,18 +1,24 @@
 # 아래 클래스를 수정하시오.
 class Animal:
-    pass
+    num_of_animal = 0
 
 
-class Dog:
-    pass
+class Dog(Animal):
+    def __init__(self):
+        Animal.num_of_animal += 1
 
 
-class Cat:
-    pass
+class Cat(Animal):
+    def __init__(self):
+        Animal.num_of_animal += 1
 
 
-class Pet:
-    pass
+class Pet(Dog, Cat):
+    @classmethod
+    def access_num_of_animal(cls):
+        # Animal.num_of_animal를 써도 되는데
+        # 클래스를 상속받는 자식 클래스까지 고려한다면 cls가 좋단말???????
+        return f'동물의 수는 {cls.num_of_animal}마리 입니다.'
 
 
 dog = Dog()
