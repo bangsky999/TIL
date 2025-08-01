@@ -15,44 +15,33 @@ class BaseModel:
         print('데이터를 저장합니다.')
 
 class Novel(BaseModel):
+    # author을 추가했는데 이거를 basemodel에서도 사용할 수있는건가?
     def __init__(self, data_type, title, content, created_at, updated_at, author):
         super().__init__(data_type, title, content, created_at, updated_at)
         self.author = author
     
 class Other(BaseModel):
-    # 클래스 변수 수정
     TYPE = 'OtherModel'
     
-    # basemodel클래스의 save메서드 호출
+    # basemodel클래스의 save메서드 호출할 필요가 있나 ? 형식이 똑같은데???
     def save(self):
-        # super().save() -> 부모 메서드를 동작까지 가져올때필요
+        # 이렇게만 해도 상속이되는데 super 사용하는 이유- 1?
         print('데이터를 다른 장소에 저장합니다.')
 
 class ExtendedModel(Novel, Other):
-    # 클래스 변수 => 속성
-    Type = 'Extended Type' # 어떻게 이전에 추가할지???????????????????????
+    TYPE = 'Extended Type' 
 
     def display_info(self):
-        super().
+        # 이렇게만 해도 상속이되는데 super 사용하는 이유- 2?
+        print('ExtendedModel 인스턴스의 정보 출력 및 저장 메서드 호출')
+        # 왜 TYPE를 Other.TYPE로 하면 안되지?, self.type로 하면 의존성이 높아진다?
+        print(f'PK: {self.PK}, TYPE: {Other.TYPE}, Extended Type: {self.TYPE}')
+        
+    def save(self):
+        print('데이터를 확장해서 저장합니다.')
+    
+    
 
-hong = Novel('소설', '홍길동', '고전 소설', 1618, 1692, '허균')
-chun = Novel('소설', '춘향전', '고전 소설', 'unknown', 'unknown', '작자미상')
-print('Novel 모델 인스턴스의 PK와 save 메서드')
-print(hong.PK)
-print(chun.PK)
-hong.save()
-chun.save()
-print(hong.author)
-print(chun.author)
-print('---')
-
-company = Other('회사', '회사명', '회사 설명', 2000, 2023)
-print('Other 모델 인스턴스의 PK와 save 메서드')
-print(company.PK)
-company.save()
-
-print('---')
-print('모델 별 타입')
-print(Novel.TYPE)
-print(Other.TYPE)
-
+extended_instance = ExtendedModel('소설', '홍길동', '고전 소설', 1618, 1692, '허균')
+extended_instance.display_info()
+extended_instance.save()
