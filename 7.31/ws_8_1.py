@@ -16,8 +16,10 @@ class Cat(Animal):
 class Pet(Dog, Cat):
     @classmethod
     def access_num_of_animal(cls):
-        # Animal.num_of_animal를 써도 되는데
-        # 클래스를 상속받는 자식 클래스까지 고려한다면 cls가 좋단말???????
+        # Animal.num_of_animal를 직접 써도 되지만,
+        # cls를 사용하면 유연하게 동작 가능
+        # 클래스 메서드에서 cls는 '클래스 자체'를 의미함.(클래스에만 접근)
+
         return f'동물의 수는 {cls.num_of_animal}마리 입니다.'
 
 
